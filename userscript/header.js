@@ -8,6 +8,8 @@
 // @match        https://www.furtrack.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=furtrack.com
 // @grant        window.onurlchange
+// @updateURL    https://github.com/gryphonfluff/furtrack-tag-icons/releases/latest/download/furtrack-tag-icons.js
+// @downloadURL  https://github.com/gryphonfluff/furtrack-tag-icons/releases/latest/download/furtrack-tag-icons.js
 // ==/UserScript==
 */
 
