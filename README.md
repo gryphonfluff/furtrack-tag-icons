@@ -6,6 +6,8 @@ This is a [userscript][] which shows icon on character tags on
 [userscript]: https://en.wikipedia.org/wiki/Userscript
 [furtrack]: https://www.furtrack.com/
 
+<img src="docs/images/demo-search.png">
+
 ## Install
 
 ### Supported Browsers
@@ -28,11 +30,24 @@ https://github.com/gryphonfluff/furtrack-tag-icons/releases/latest/download/furt
 
 [Tampermonkey]: https://www.tampermonkey.net/
 
-## Screenshots
+### Uninstall
 
-* Search
+Following these steps to uninstall the script if you experiences any issues.
 
-<img src="docs/images/demo-search.png">
+1. Go to the Tampermonkey "Dashboard" page, select the "Install Userscripts" tag.
+1. Find the "FurTrack Tag Icons" row, click the trash can icon on the right to remove.
+
+<img src="docs/images/userscript-uninstall.png">
+
+### Other Versions
+
+You can find older releases on the repository [Releases][releases] page.
+Download the `furtrack-tag-icons.js` and import it by dragging it onto
+extension's dashboard page.
+
+[releases]: https://github.com/gryphonfluff/furtrack-tag-icons/releases
+
+## More Screenshots
 
 * Tagging Mode
 
