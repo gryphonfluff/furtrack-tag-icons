@@ -1,4 +1,6 @@
 {
+  "name": "furtrack-tag-icons",
+  "version": "0.1.0",
   "scripts": {
     "prebuild": "eslint ./userscript",
     "build": "webpack --mode=development",

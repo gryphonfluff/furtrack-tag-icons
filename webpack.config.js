@@ -1,3 +1,4 @@
+const package = require('./package.json');
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -25,7 +26,8 @@ module.exports = {
   },
   plugins: [
     new webpack.BannerPlugin({
-      banner: () => fs.readFileSync('./userscript/header.js', 'utf8'),
+      banner: () => fs.readFileSync('./userscript/header.js', 'utf8').
+        replace('@@version@@', package.version),
       raw: true,
       entryOnly: true,
     }),

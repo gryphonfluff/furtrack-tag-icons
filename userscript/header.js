@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         FurTrack Tag Icons
 // @namespace    https://github.com/gryphonfluff/furtrack-tag-icons/
-// @version      0.1
+// @version      @@version@@
 // @description  Shows FurTrack character tag with icons
 // @author       Gryphon <gryphon@arctic.tw>
 // @match        https://www.furtrack.com/*
