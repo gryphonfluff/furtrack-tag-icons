@@ -1,0 +1,8 @@
+[
+    {
+      "origin": ["https://www.furtrack.com"],
+      "method": ["GET"],
+      "responseHeader": ["Content-Type"],
+      "maxAgeSeconds": 86400
+    }
+]
