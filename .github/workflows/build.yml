@@ -35,3 +35,4 @@ jobs:
           body: Description
           files: |
             dist/furtrack-tag-icons.js
+            LICENSE.txt
