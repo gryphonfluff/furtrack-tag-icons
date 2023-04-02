@@ -34,8 +34,8 @@ https://github.com/gryphonfluff/furtrack-tag-icons/releases/latest/download/furt
 
 Following these steps to uninstall the script if you experiences any issues.
 
-1. Go to the Tampermonkey "Dashboard" page, select the "Install Userscripts" tag.
-1. Find the "FurTrack Tag Icons" row, click the trash can icon on the right to remove.
+1. Go to the Tampermonkey "Dashboard" page, select the "Installed Userscripts" tab.
+1. Find the "FurTrack Tag Icons" row, click the trashcan icon on the right to remove.
 
 <img src="docs/images/userscript-uninstall.png">
 
