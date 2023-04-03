@@ -1,6 +1,6 @@
 import { log } from './logging';
 import { ThrottlingQueue } from './queue';
-import { StubCache } from './cache';
+import { StubCache, Entry } from './cache';
 import { seedCache } from './seeding';
 import { genThumbUrl, fetchStub, TagMeta } from './client';
 
@@ -32,30 +32,31 @@ import { genThumbUrl, fetchStub, TagMeta } from './client';
     const index = document.getElementById('indexpage');
     if (!index) return;
 
-    const update = async (tagmeta: TagMeta) => {
+    const entries: Array<Entry> = [];
+    const update = (tagmeta: TagMeta) => {
       const { tagName: name, tagUrlStub } = tagmeta;
       // We only care about char tags.
       if (name?.startsWith('1:')) {
         const stub = tagUrlStub ?? '';
-        log(`active stub cache update: ${name} => ${stub}`);
-        await stubCache.put({ name, stub, src: '' });
+        entries.push({ name, stub, src: '' });
       }
     };
-
     for (const [key, value] of Object.entries(index)) {
       if (key.startsWith('__reactInternalInstance$')) {
         const tagmeta = value?.return?.stateNode?.state?.tagmeta;
         if (tagmeta) {
-          await update(tagmeta);
+          update(tagmeta);
           // Maker page.
           if (tagmeta.tagFursuits) {
             for (const t of tagmeta.tagFursuits) {
-              await update(t);
+              update(t);
             }
           }
         }
       }
     }
+    await stubCache.bulkPut(entries);
+    log(`active stub cache update (${entries.length} entries):`, entries);
   };
 
   // Our CSS for showing stub thumb image on auto-suggest tags.

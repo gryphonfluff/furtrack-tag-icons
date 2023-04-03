@@ -43,11 +43,11 @@ export class StubCache {
     return this._tx('readonly', s => s.get(name));
   }
 
-  put(v: Entry) {
+  put(v: Entry): Promise<IDBValidKey> {
     return this._tx('readwrite', s => s.put(v));
   }
 
-  seedPut(it: Iterable<Entry>): Promise<void> {
+  bulkPut(it: Iterable<Entry>): Promise<void> {
     return new Promise((resolve, reject) => {
       let success = 0, error = 0, total = 0;
       const complete = () => (error > 0 ? reject : resolve)();

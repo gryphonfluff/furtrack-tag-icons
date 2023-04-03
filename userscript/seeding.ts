@@ -31,7 +31,7 @@ export const seedCache = async (stubCache: StubCache) => {
     const deleted = await stubCache.yeetSrc(file.name);
     log(`yeeted cache from ${file.name}: ${deleted} entries`);
 
-    await stubCache.seedPut(function* () {
+    await stubCache.bulkPut(function* () {
       for (const name of Object.keys(stubs)) {
         yield { name, stub: stubs[name], src };
       }
