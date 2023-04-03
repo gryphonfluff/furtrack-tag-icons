@@ -13,3 +13,11 @@
 // ==/UserScript==
 */
 
+/*!
+ * RELEASE NOTES
+ *
+ * Version v0.1.1
+ * - Improve performance when navigating tag pages which have large amount of
+ *   character tags.
+ *
+ */
