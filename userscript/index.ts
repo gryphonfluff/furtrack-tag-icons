@@ -27,6 +27,7 @@ import { genThumbUrl, fetchStub, TagMeta } from './client';
   };
 
   // Scans DOM for react component which contains the tagmeta then does active cache updates.
+  let lastDomTagName = '';
   const scanDom = async () => {
     log('scanning dom for tagmeta');
     const index = document.getElementById('indexpage');
@@ -45,6 +46,12 @@ import { genThumbUrl, fetchStub, TagMeta } from './client';
       if (key.startsWith('__reactInternalInstance$')) {
         const tagmeta = value?.return?.stateNode?.state?.tagmeta;
         if (tagmeta) {
+          // Skip update if it's the same tag as last time. This happens when
+          // user is navigating posts on a tag index page.
+          const { tagName } = tagmeta;
+          if (tagName === lastDomTagName) return;
+          lastDomTagName = tagName;
+
           update(tagmeta);
           // Maker page.
           if (tagmeta.tagFursuits) {
