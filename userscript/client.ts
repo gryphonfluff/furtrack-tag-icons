@@ -3,7 +3,8 @@ export type TagMeta = {
   tagUrlStub?: string;
 };
 
-export const genThumbUrl = (stub: string) => `https://orca.furtrack.com/gallery/thumb/${stub}.jpg`;
+// Note: New tag thumb URL only contains the tag ID. Strip out the rest in the case of old data.
+export const genThumbUrl = (stub: string) => `https://orca2.furtrack.com/thumb/${stub.split('-')[0]}.jpg`;
 
 export const fetchStub = async (name: string) => {
   const r = await fetch(`https://solar.furtrack.com/get/index/${name}`);
