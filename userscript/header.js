@@ -16,6 +16,10 @@
 /*!
  * RELEASE NOTES
  *
+ * Version v0.2.0
+ * - Switch to use the local tag DB for thumb icons.
+ * - Improve stability.
+ *
  * Version v0.1.2
  * - Update tag thumbnail URL.
  *
