@@ -11,6 +11,10 @@ import { genThumbUrl } from './client';
   const tagDB = await TagDB.open();
 
   // Our CSS for showing stub thumb image on auto-suggest tags.
+  if (document.styleSheets.length == 0) {
+    document.head.appendChild(document.createElement('style'));
+    log('inserted a style tag');
+  }
   const css = document.styleSheets[0];
   css.insertRule(`
     #fsu .autosuggest-item.character,
