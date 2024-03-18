@@ -1,5 +1,7 @@
 # cronjob
 
+**OBSOLETE: As of v0.2.0, tag icon info is present in the local tag database.**
+
 Note: You only need this if you want to self-host the mapping seed.
 
 This cronjob needs to be run periodically to update the mappings.
