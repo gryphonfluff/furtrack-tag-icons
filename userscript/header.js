@@ -16,6 +16,9 @@
 /*!
  * RELEASE NOTES
  *
+ * Version v0.2.1
+ * - Fix cross-origin errors when inserting stylesheet on some platforms.
+ *
  * Version v0.2.0
  * - Switch to use the local tag DB for thumb icons.
  * - Improve stability.
