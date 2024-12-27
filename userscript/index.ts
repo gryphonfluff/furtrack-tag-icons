@@ -11,12 +11,9 @@ import { genThumbUrl } from './client';
   const tagDB = await TagDB.open();
 
   // Our CSS for showing stub thumb image on auto-suggest tags.
-  if (document.styleSheets.length == 0) {
-    document.head.appendChild(document.createElement('style'));
-    log('inserted a style tag');
-  }
-  const css = document.styleSheets[0];
-  css.insertRule(`
+  const styleTag = document.createElement('style');
+  styleTag.type = 'text/css';
+  styleTag.appendChild(document.createTextNode(`
     #fsu .autosuggest-item.character,
     .autosuggest-item.character {
       display: inline-block;
@@ -24,8 +21,6 @@ import { genThumbUrl } from './client';
       padding: 3px 8px 4px 0;
       line-height: 32px;
     }
-  `)
-  css.insertRule(`
     #fsu .autosuggest-item.character[data-image],
     .autosuggest-item.character[data-image] {
       background-repeat: no-repeat;
@@ -33,7 +28,13 @@ import { genThumbUrl } from './client';
       background-position: left;
       padding-left: 40px;
     }
-  `);
+  `));
+  const firstLink = document.head.getElementsByTagName('link').item(0);
+  if (firstLink) {
+    firstLink.parentElement?.insertBefore(styleTag, firstLink);
+  } else {
+    document.head.appendChild(styleTag);
+  }
 
   // Attaches stub urls to autosuggest tags.
   const attachImages = async () => {
